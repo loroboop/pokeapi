@@ -1,0 +1,151 @@
+/* App.css */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #706d6d;
+  color: #ffffff;
+  text-align: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 30px;
+  text-shadow: 0 0 10px #7f00ff;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+img {
+  margin: 20px auto;
+  transition: filter 0.5s ease;
+}
+
+input {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  margin-right: 10px;
+  width: 220px;
+  background-color: #1f1f1f;
+  color: rgb(119, 115, 115);
+  outline: none;
+  box-shadow: 0 0 5px #7f00ff;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  margin: 10px 5px;
+  cursor: pointer;
+  background: linear-gradient(to right, #7f00ff, #e100ff);
+  color: rgb(246, 244, 244);
+  box-shadow: 0 0 10px #7f00ff;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #444;
+  box-shadow: none;
+}
+
+.message {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: #e0b3ff;
+}
+
+/* Pokéballs flotantes */
+.pokeball-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.pokeball {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(white 50%, red 50%);
+  border: 2px solid black;
+  border-radius: 50%;
+  animation: float 20s linear infinite;
+  opacity: 0.3;
+}
+
+.pokeball::before {
+  content: '';
+  position: absolute;
+  top: 19px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: black;
+}
+
+.pokeball::after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  to {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+/* Efecto correcto estilo anime */
+.correct-effect {
+  animation: correctFlash 0.5s ease-in-out;
+  box-shadow: 0 0 30px 10px #00ffcc;
+  transition: box-shadow 0.3s;
+}
+
+@keyframes correctFlash {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Efecto fallo tipo onda oscura */
+.fail-effect {
+  animation: failShake 0.5s ease-in-out;
+  box-shadow: 0 0 30px 10px red;
+  transition: box-shadow 0.3s;
+}
+
+@keyframes failShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+}
